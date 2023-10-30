@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int Prog1, Prog2, Math1, Physics, English, ArtApp;
+
+    cout << "Enter the grade for Prog1: ";
+    cin >> Prog1;
+    cout << "Enter the grade for Prog2: ";
+    cin >> Prog2;
+    cout << "Enter the grade for Math1: ";
+    cin >> Math1;
+    cout << "Enter the grade for Physics: ";
+    cin >> Physics;
+    cout << "Enter the grade for English: ";
+    cin >> English;
+    cout << "Enter the grade for Art App: ";
+    cin >> ArtApp;
+
+    double average = (Prog1 + Prog2 + Math1 + Physics + English + ArtApp) / 6.0;
+
+    int highestGrade = max(max(max(max(max(Prog1, Prog2), Math1), Physics), English), ArtApp);
+
+    int numFailed = 0;
+
+    if (Prog1 < 80) {
+        numFailed++;
+    }
+    if (Prog2 < 85) {
+        numFailed++;
+    }
+    if (Math1 < 80) {
+        numFailed++;
+    }
+    if (Physics < 75) {
+        numFailed++;
+    }
+    if (English < 75) {
+        numFailed++;
+    }
+    if (ArtApp < 75) {
+        numFailed++;
+    }
+
+    if (numFailed == 0 && average >= 83) {
+        cout << "Promoted" << endl;
+    } else if (average >= 83 && numFailed == 1) {
+        cout << "Take a conditional exam" << endl;
+    } else if (average >= 83 && numFailed > 1) {
+        cout << "Retain to your level" << endl;
+    } else if (numFailed == 0 && average < 83) {
+        cout << "Probation level" << endl;
+    } else {
+        cout << "Conditional probationary" << endl;
+    }
+
+    cout << "Average: " << average << endl;
+    cout << "Highest Grade: " << highestGrade << endl;
+
+    return 0;
+}
